@@ -89,32 +89,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-<?php foreach ($hotelsArray as $key => $singleHotel) { ?>
-        <section>
-          
-           
-                <article>
-                    <h2>
-                        <?php echo $singleHotel['name']; ?>
-                    </h2>
-                    <p><b>Descrizione:</b> <?php echo $singleHotel['description']; ?></p>
-                    <!-- ------------ -->
-                    <p><b>Parcheggio:</b> <?php if ($singleHotel['parking'] == true) { ?>
+
+
+
+            <section class="p-5">
+
+
+                <!-- TABLE -->
+                <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Parking</th>
+      <th scope="col">Vote</th>
+      <th scope="col">Distance to Center</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach ($hotelsArray as $key => $singleHotel) { ?>
+    <tr>
+      <th scope="row"><?php echo ($key + 1) ?></th>
+      <td><b><?php echo $singleHotel['name']; ?></b></td>
+      <td><?php echo $singleHotel['description']; ?></td>
+      <td>
+        <?php if ($singleHotel['parking'] == true) { ?>
                         Si <?php } else { ?>
                             No <?php } ?>
+      </td>
+    <td><?php echo $singleHotel['vote']; ?></td>
+    <td><?php echo $singleHotel['distance_to_center']; ?> km</td>
 
-                   </p>
-                    <!-- ------------ -->
-                    <p><b>Voto:</b> <?php echo $singleHotel['vote']; ?></p>
-                    <p><b>Distanza dal centro:</b> <?php echo $singleHotel['distance_to_center'];?>km</p>
-
-                </article>
-            </section>
-            
-            <?php } ?>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
+</section>
+  
 
 
 
