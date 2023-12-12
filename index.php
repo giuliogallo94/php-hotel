@@ -1,6 +1,6 @@
 <?php
 
-    $hotels = [
+    $hotelsArray = [
 
         [
             'name' => 'Hotel Belvedere',
@@ -39,5 +39,86 @@
         ],
 
     ];
-    var_dump($hotels);
-?>
+
+    $posts = [
+        '10/01/2019' => [
+            [
+                'title' => 'Post 1',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 1'
+            ],
+            [
+                'title' => 'Post 2',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 2'
+            ],
+        ],
+        '10/02/2019' => [
+            [
+                'title' => 'Post 3',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 3'
+            ]
+        ],
+        '15/05/2019' => [
+            [
+                'title' => 'Post 4',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 4'
+            ],
+            [
+                'title' => 'Post 5',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 5'
+            ],
+            [
+                'title' => 'Post 6',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 6'
+            ]
+        ],
+    ];
+    ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<?php foreach ($hotelsArray as $key => $singleHotel) { ?>
+        <section>
+          
+           
+                <article>
+                    <h2>
+                        <?php echo $singleHotel['name']; ?>
+                    </h2>
+                    <p><b>Descrizione:</b> <?php echo $singleHotel['description']; ?></p>
+                    <!-- ------------ -->
+                    <p><b>Parcheggio:</b> <?php if ($singleHotel['parking'] == true) { ?>
+                        Si <?php } else { ?>
+                            No <?php } ?>
+
+                   </p>
+                    <!-- ------------ -->
+                    <p><b>Voto:</b> <?php echo $singleHotel['vote']; ?></p>
+                    <p><b>Distanza dal centro:</b> <?php echo $singleHotel['distance_to_center'];?>km</p>
+
+                </article>
+            </section>
+            
+            <?php } ?>
+
+
+
+
+</body>
+
+</html>
